@@ -1,0 +1,483 @@
+
+Task1.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         000000a8  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000002a4  2**0
+                  ALLOC, LOAD, DATA
+  2 .comment      0000002f  00000000  00000000  000002a4  2**0
+                  CONTENTS, READONLY
+  3 .stack.descriptors.hdr 0000000e  00000000  00000000  000002d3  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000070  00000000  00000000  000002e1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00001125  00000000  00000000  00000351  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 000006f5  00000000  00000000  00001476  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000443  00000000  00000000  00001b6b  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  0000008c  00000000  00000000  00001fb0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000001fb  00000000  00000000  0000203c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000002d2  00000000  00000000  00002237  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000040  00000000  00000000  00002509  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000004  00000222  00000222  00000296  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000254c  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.DIO_enuSetPinValue 0000011a  000000a8  000000a8  0000011c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.main    0000003e  000001c2  000001c2  00000236  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.PORT_voidPortInit 0000000c  00000216  00000216  0000028a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.__dummy_fini 00000002  0000022a  0000022a  0000029e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.__dummy_funcs_on_exit 00000002  0000022c  0000022c  000002a0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.__dummy_simulator_exit 00000002  0000022e  0000022e  000002a2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.exit    00000016  00000200  00000200  00000274  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text._Exit   00000004  00000226  00000226  0000029a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+   8:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+   c:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  10:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  14:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  18:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  1c:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  20:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  24:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  28:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  2c:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  30:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  34:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  38:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  3c:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  40:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  44:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  48:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  4c:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+  50:	0c 94 11 01 	jmp	0x222	; 0x222 <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	e4 e5       	ldi	r30, 0x54	; 84
+  62:	f0 e0       	ldi	r31, 0x00	; 0
+  64:	40 e0       	ldi	r20, 0x00	; 0
+  66:	17 c0       	rjmp	.+46     	; 0x96 <__do_clear_bss+0x8>
+  68:	b5 91       	lpm	r27, Z+
+  6a:	a5 91       	lpm	r26, Z+
+  6c:	35 91       	lpm	r19, Z+
+  6e:	25 91       	lpm	r18, Z+
+  70:	05 91       	lpm	r16, Z+
+  72:	07 fd       	sbrc	r16, 7
+  74:	0c c0       	rjmp	.+24     	; 0x8e <__do_clear_bss>
+  76:	95 91       	lpm	r25, Z+
+  78:	85 91       	lpm	r24, Z+
+  7a:	ef 01       	movw	r28, r30
+  7c:	f9 2f       	mov	r31, r25
+  7e:	e8 2f       	mov	r30, r24
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a2 17       	cp	r26, r18
+  86:	b3 07       	cpc	r27, r19
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0x20>
+  8a:	fe 01       	movw	r30, r28
+  8c:	04 c0       	rjmp	.+8      	; 0x96 <__do_clear_bss+0x8>
+
+0000008e <__do_clear_bss>:
+  8e:	1d 92       	st	X+, r1
+  90:	a2 17       	cp	r26, r18
+  92:	b3 07       	cpc	r27, r19
+  94:	e1 f7       	brne	.-8      	; 0x8e <__do_clear_bss>
+  96:	e4 35       	cpi	r30, 0x54	; 84
+  98:	f4 07       	cpc	r31, r20
+  9a:	31 f7       	brne	.-52     	; 0x68 <__do_copy_data+0x8>
+  9c:	0e 94 e1 00 	call	0x1c2	; 0x1c2 <main>
+  a0:	0c 94 00 01 	jmp	0x200	; 0x200 <exit>
+
+000000a4 <_exit>:
+  a4:	f8 94       	cli
+
+000000a6 <__stop_program>:
+  a6:	ff cf       	rjmp	.-2      	; 0xa6 <__stop_program>
+
+Disassembly of section .text:
+
+00000222 <__bad_interrupt>:
+ 222:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+Disassembly of section .text.DIO_enuSetPinValue:
+
+000000a8 <DIO_enuSetPinValue>:
+
+DIO_enuErrorState_t DIO_enuSetPinValue(DIO_enuPORT_OPTS_t Copy_enuPortNum , DIO_enuPIN_OPTS_t Copy_enuPinNum , DIO_enuSTATE_OPTS_t Copy_enuState )
+{
+	DIO_enuErrorState_t Ret_enuErrorStates = DIO_enu_NOK  ;
+    
+    if(Copy_enuPortNum > DIO_enuPort_D)
+  a8:	84 30       	cpi	r24, 0x04	; 4
+  aa:	08 f0       	brcs	.+2      	; 0xae <DIO_enuSetPinValue+0x6>
+  ac:	80 c0       	rjmp	.+256    	; 0x1ae <DIO_enuSetPinValue+0x106>
+     Ret_enuErrorStates = DIO_enu_INVALID_PORT_NUM ;
+
+    else if(Copy_enuPinNum > DIO_enuPin_7)
+  ae:	68 30       	cpi	r22, 0x08	; 8
+  b0:	08 f0       	brcs	.+2      	; 0xb4 <DIO_enuSetPinValue+0xc>
+  b2:	7f c0       	rjmp	.+254    	; 0x1b2 <DIO_enuSetPinValue+0x10a>
+     Ret_enuErrorStates = DIO_enu_INVALID_PIN_NUM ;
+ 
+    else if(Copy_enuState > DIO_enuHigh)
+  b4:	42 30       	cpi	r20, 0x02	; 2
+  b6:	08 f0       	brcs	.+2      	; 0xba <DIO_enuSetPinValue+0x12>
+  b8:	7e c0       	rjmp	.+252    	; 0x1b6 <DIO_enuSetPinValue+0x10e>
+     Ret_enuErrorStates = DIO_enu_INVALID_STATE;
+    
+    else 
+    {
+		 Ret_enuErrorStates = DIO_enu_OK  ;
+       switch (Copy_enuPortNum)
+  ba:	81 30       	cpi	r24, 0x01	; 1
+  bc:	19 f1       	breq	.+70     	; 0x104 <DIO_enuSetPinValue+0x5c>
+  be:	30 f0       	brcs	.+12     	; 0xcc <DIO_enuSetPinValue+0x24>
+  c0:	82 30       	cpi	r24, 0x02	; 2
+  c2:	e1 f1       	breq	.+120    	; 0x13c <DIO_enuSetPinValue+0x94>
+  c4:	83 30       	cpi	r24, 0x03	; 3
+  c6:	09 f4       	brne	.+2      	; 0xca <DIO_enuSetPinValue+0x22>
+  c8:	55 c0       	rjmp	.+170    	; 0x174 <DIO_enuSetPinValue+0xcc>
+  ca:	77 c0       	rjmp	.+238    	; 0x1ba <DIO_enuSetPinValue+0x112>
+       {
+         case DIO_enuPort_A:
+         switch (Copy_enuState)
+  cc:	44 23       	and	r20, r20
+  ce:	71 f0       	breq	.+28     	; 0xec <DIO_enuSetPinValue+0x44>
+  d0:	41 30       	cpi	r20, 0x01	; 1
+  d2:	c1 f4       	brne	.+48     	; 0x104 <DIO_enuSetPinValue+0x5c>
+		 {
+            case DIO_enuHigh :            SET_BIT(PORTA,Copy_enuPinNum) ;                  break;
+  d4:	2b b3       	in	r18, 0x1b	; 27
+  d6:	81 e0       	ldi	r24, 0x01	; 1
+  d8:	90 e0       	ldi	r25, 0x00	; 0
+  da:	06 2e       	mov	r0, r22
+  dc:	02 c0       	rjmp	.+4      	; 0xe2 <DIO_enuSetPinValue+0x3a>
+  de:	88 0f       	add	r24, r24
+  e0:	99 1f       	adc	r25, r25
+  e2:	0a 94       	dec	r0
+  e4:	e2 f7       	brpl	.-8      	; 0xde <DIO_enuSetPinValue+0x36>
+  e6:	82 2b       	or	r24, r18
+  e8:	8b bb       	out	0x1b, r24	; 27
+  ea:	0c c0       	rjmp	.+24     	; 0x104 <DIO_enuSetPinValue+0x5c>
+            case DIO_enuLow:              CLR_BIT(PORTA,Copy_enuPinNum) ;                  break;   
+  ec:	2b b3       	in	r18, 0x1b	; 27
+  ee:	81 e0       	ldi	r24, 0x01	; 1
+  f0:	90 e0       	ldi	r25, 0x00	; 0
+  f2:	06 2e       	mov	r0, r22
+  f4:	02 c0       	rjmp	.+4      	; 0xfa <DIO_enuSetPinValue+0x52>
+  f6:	88 0f       	add	r24, r24
+  f8:	99 1f       	adc	r25, r25
+  fa:	0a 94       	dec	r0
+  fc:	e2 f7       	brpl	.-8      	; 0xf6 <DIO_enuSetPinValue+0x4e>
+  fe:	80 95       	com	r24
+ 100:	82 23       	and	r24, r18
+ 102:	8b bb       	out	0x1b, r24	; 27
+			default:                                                                       break;
+		 }
+
+           case DIO_enuPort_B:
+		   switch (Copy_enuState)
+ 104:	44 23       	and	r20, r20
+ 106:	71 f0       	breq	.+28     	; 0x124 <DIO_enuSetPinValue+0x7c>
+ 108:	41 30       	cpi	r20, 0x01	; 1
+ 10a:	c1 f4       	brne	.+48     	; 0x13c <DIO_enuSetPinValue+0x94>
+		 {
+            case DIO_enuHigh :            SET_BIT(PORTB,Copy_enuPinNum) ;                  break;
+ 10c:	28 b3       	in	r18, 0x18	; 24
+ 10e:	81 e0       	ldi	r24, 0x01	; 1
+ 110:	90 e0       	ldi	r25, 0x00	; 0
+ 112:	06 2e       	mov	r0, r22
+ 114:	02 c0       	rjmp	.+4      	; 0x11a <DIO_enuSetPinValue+0x72>
+ 116:	88 0f       	add	r24, r24
+ 118:	99 1f       	adc	r25, r25
+ 11a:	0a 94       	dec	r0
+ 11c:	e2 f7       	brpl	.-8      	; 0x116 <DIO_enuSetPinValue+0x6e>
+ 11e:	82 2b       	or	r24, r18
+ 120:	88 bb       	out	0x18, r24	; 24
+ 122:	0c c0       	rjmp	.+24     	; 0x13c <DIO_enuSetPinValue+0x94>
+            case DIO_enuLow:              CLR_BIT(PORTB,Copy_enuPinNum) ;                  break;  
+ 124:	28 b3       	in	r18, 0x18	; 24
+ 126:	81 e0       	ldi	r24, 0x01	; 1
+ 128:	90 e0       	ldi	r25, 0x00	; 0
+ 12a:	06 2e       	mov	r0, r22
+ 12c:	02 c0       	rjmp	.+4      	; 0x132 <DIO_enuSetPinValue+0x8a>
+ 12e:	88 0f       	add	r24, r24
+ 130:	99 1f       	adc	r25, r25
+ 132:	0a 94       	dec	r0
+ 134:	e2 f7       	brpl	.-8      	; 0x12e <DIO_enuSetPinValue+0x86>
+ 136:	80 95       	com	r24
+ 138:	82 23       	and	r24, r18
+ 13a:	88 bb       	out	0x18, r24	; 24
+			default:                                                                       break;
+ 
+		 }
+
+		   case DIO_enuPort_C:
+		   switch (Copy_enuState)
+ 13c:	44 23       	and	r20, r20
+ 13e:	71 f0       	breq	.+28     	; 0x15c <DIO_enuSetPinValue+0xb4>
+ 140:	41 30       	cpi	r20, 0x01	; 1
+ 142:	c1 f4       	brne	.+48     	; 0x174 <DIO_enuSetPinValue+0xcc>
+		 {
+            case DIO_enuHigh :            SET_BIT(PORTC,Copy_enuPinNum) ;                  break;
+ 144:	25 b3       	in	r18, 0x15	; 21
+ 146:	81 e0       	ldi	r24, 0x01	; 1
+ 148:	90 e0       	ldi	r25, 0x00	; 0
+ 14a:	06 2e       	mov	r0, r22
+ 14c:	02 c0       	rjmp	.+4      	; 0x152 <DIO_enuSetPinValue+0xaa>
+ 14e:	88 0f       	add	r24, r24
+ 150:	99 1f       	adc	r25, r25
+ 152:	0a 94       	dec	r0
+ 154:	e2 f7       	brpl	.-8      	; 0x14e <DIO_enuSetPinValue+0xa6>
+ 156:	82 2b       	or	r24, r18
+ 158:	85 bb       	out	0x15, r24	; 21
+ 15a:	0c c0       	rjmp	.+24     	; 0x174 <DIO_enuSetPinValue+0xcc>
+            case DIO_enuLow:              CLR_BIT(PORTC,Copy_enuPinNum) ;                  break;   
+ 15c:	25 b3       	in	r18, 0x15	; 21
+ 15e:	81 e0       	ldi	r24, 0x01	; 1
+ 160:	90 e0       	ldi	r25, 0x00	; 0
+ 162:	06 2e       	mov	r0, r22
+ 164:	02 c0       	rjmp	.+4      	; 0x16a <DIO_enuSetPinValue+0xc2>
+ 166:	88 0f       	add	r24, r24
+ 168:	99 1f       	adc	r25, r25
+ 16a:	0a 94       	dec	r0
+ 16c:	e2 f7       	brpl	.-8      	; 0x166 <DIO_enuSetPinValue+0xbe>
+ 16e:	80 95       	com	r24
+ 170:	82 23       	and	r24, r18
+ 172:	85 bb       	out	0x15, r24	; 21
+			default:                                                                       break;
+
+		 }
+		   case DIO_enuPort_D:
+		   switch (Copy_enuState)
+ 174:	44 23       	and	r20, r20
+ 176:	71 f0       	breq	.+28     	; 0x194 <DIO_enuSetPinValue+0xec>
+ 178:	41 30       	cpi	r20, 0x01	; 1
+ 17a:	09 f5       	brne	.+66     	; 0x1be <DIO_enuSetPinValue+0x116>
+		 {
+            case DIO_enuHigh :            SET_BIT(PORTD,Copy_enuPinNum) ;                  break;
+ 17c:	22 b3       	in	r18, 0x12	; 18
+ 17e:	81 e0       	ldi	r24, 0x01	; 1
+ 180:	90 e0       	ldi	r25, 0x00	; 0
+ 182:	02 c0       	rjmp	.+4      	; 0x188 <DIO_enuSetPinValue+0xe0>
+ 184:	88 0f       	add	r24, r24
+ 186:	99 1f       	adc	r25, r25
+ 188:	6a 95       	dec	r22
+ 18a:	e2 f7       	brpl	.-8      	; 0x184 <DIO_enuSetPinValue+0xdc>
+ 18c:	82 2b       	or	r24, r18
+ 18e:	82 bb       	out	0x12, r24	; 18
+    else if(Copy_enuState > DIO_enuHigh)
+     Ret_enuErrorStates = DIO_enu_INVALID_STATE;
+    
+    else 
+    {
+		 Ret_enuErrorStates = DIO_enu_OK  ;
+ 190:	80 e0       	ldi	r24, 0x00	; 0
+
+		 }
+		   case DIO_enuPort_D:
+		   switch (Copy_enuState)
+		 {
+            case DIO_enuHigh :            SET_BIT(PORTD,Copy_enuPinNum) ;                  break;
+ 192:	08 95       	ret
+            case DIO_enuLow:              CLR_BIT(PORTD,Copy_enuPinNum) ;                  break; 
+ 194:	22 b3       	in	r18, 0x12	; 18
+ 196:	81 e0       	ldi	r24, 0x01	; 1
+ 198:	90 e0       	ldi	r25, 0x00	; 0
+ 19a:	02 c0       	rjmp	.+4      	; 0x1a0 <DIO_enuSetPinValue+0xf8>
+ 19c:	88 0f       	add	r24, r24
+ 19e:	99 1f       	adc	r25, r25
+ 1a0:	6a 95       	dec	r22
+ 1a2:	e2 f7       	brpl	.-8      	; 0x19c <DIO_enuSetPinValue+0xf4>
+ 1a4:	80 95       	com	r24
+ 1a6:	82 23       	and	r24, r18
+ 1a8:	82 bb       	out	0x12, r24	; 18
+    else if(Copy_enuState > DIO_enuHigh)
+     Ret_enuErrorStates = DIO_enu_INVALID_STATE;
+    
+    else 
+    {
+		 Ret_enuErrorStates = DIO_enu_OK  ;
+ 1aa:	80 e0       	ldi	r24, 0x00	; 0
+		 }
+		   case DIO_enuPort_D:
+		   switch (Copy_enuState)
+		 {
+            case DIO_enuHigh :            SET_BIT(PORTD,Copy_enuPinNum) ;                  break;
+            case DIO_enuLow:              CLR_BIT(PORTD,Copy_enuPinNum) ;                  break; 
+ 1ac:	08 95       	ret
+DIO_enuErrorState_t DIO_enuSetPinValue(DIO_enuPORT_OPTS_t Copy_enuPortNum , DIO_enuPIN_OPTS_t Copy_enuPinNum , DIO_enuSTATE_OPTS_t Copy_enuState )
+{
+	DIO_enuErrorState_t Ret_enuErrorStates = DIO_enu_NOK  ;
+    
+    if(Copy_enuPortNum > DIO_enuPort_D)
+     Ret_enuErrorStates = DIO_enu_INVALID_PORT_NUM ;
+ 1ae:	82 e0       	ldi	r24, 0x02	; 2
+ 1b0:	08 95       	ret
+
+    else if(Copy_enuPinNum > DIO_enuPin_7)
+     Ret_enuErrorStates = DIO_enu_INVALID_PIN_NUM ;
+ 1b2:	83 e0       	ldi	r24, 0x03	; 3
+ 1b4:	08 95       	ret
+ 
+    else if(Copy_enuState > DIO_enuHigh)
+     Ret_enuErrorStates = DIO_enu_INVALID_STATE;
+ 1b6:	86 e0       	ldi	r24, 0x06	; 6
+ 1b8:	08 95       	ret
+    
+    else 
+    {
+		 Ret_enuErrorStates = DIO_enu_OK  ;
+ 1ba:	80 e0       	ldi	r24, 0x00	; 0
+ 1bc:	08 95       	ret
+ 1be:	80 e0       	ldi	r24, 0x00	; 0
+		 }
+		default:                                                                           break;
+       }
+     }
+	 return Ret_enuErrorStates ;
+}
+ 1c0:	08 95       	ret
+
+Disassembly of section .text.main:
+
+000001c2 <main>:
+#include "DIO.h"
+#include <util/delay.h>
+
+int main(void)
+{
+	 PORT_voidPortInit();
+ 1c2:	0e 94 0b 01 	call	0x216	; 0x216 <PORT_voidPortInit>
+    while(1)
+    {
+		DIO_enuSetPinValue(DIO_enuPort_A,DIO_enuPin_0,DIO_enuHigh);
+ 1c6:	41 e0       	ldi	r20, 0x01	; 1
+ 1c8:	60 e0       	ldi	r22, 0x00	; 0
+ 1ca:	80 e0       	ldi	r24, 0x00	; 0
+ 1cc:	0e 94 54 00 	call	0xa8	; 0xa8 <_etext>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1d0:	2f e9       	ldi	r18, 0x9F	; 159
+ 1d2:	86 e8       	ldi	r24, 0x86	; 134
+ 1d4:	91 e0       	ldi	r25, 0x01	; 1
+ 1d6:	21 50       	subi	r18, 0x01	; 1
+ 1d8:	80 40       	sbci	r24, 0x00	; 0
+ 1da:	90 40       	sbci	r25, 0x00	; 0
+ 1dc:	e1 f7       	brne	.-8      	; 0x1d6 <main+0x14>
+ 1de:	00 c0       	rjmp	.+0      	; 0x1e0 <main+0x1e>
+ 1e0:	00 00       	nop
+		_delay_ms(500);
+		DIO_enuSetPinValue(DIO_enuPort_A,DIO_enuPin_0,DIO_enuLow);
+ 1e2:	40 e0       	ldi	r20, 0x00	; 0
+ 1e4:	60 e0       	ldi	r22, 0x00	; 0
+ 1e6:	80 e0       	ldi	r24, 0x00	; 0
+ 1e8:	0e 94 54 00 	call	0xa8	; 0xa8 <_etext>
+ 1ec:	2f e9       	ldi	r18, 0x9F	; 159
+ 1ee:	86 e8       	ldi	r24, 0x86	; 134
+ 1f0:	91 e0       	ldi	r25, 0x01	; 1
+ 1f2:	21 50       	subi	r18, 0x01	; 1
+ 1f4:	80 40       	sbci	r24, 0x00	; 0
+ 1f6:	90 40       	sbci	r25, 0x00	; 0
+ 1f8:	e1 f7       	brne	.-8      	; 0x1f2 <main+0x30>
+ 1fa:	00 c0       	rjmp	.+0      	; 0x1fc <main+0x3a>
+ 1fc:	00 00       	nop
+ 1fe:	e3 cf       	rjmp	.-58     	; 0x1c6 <main+0x4>
+
+Disassembly of section .text.PORT_voidPortInit:
+
+00000216 <PORT_voidPortInit>:
+          #define MPORT_PORTB_PIN7_DIR    PORT_HIGH
+          #define MPORT_PORTB_PIN7_PORT   PORT_LOW
+
+        #endif       
+
+        DDRA = CONCAT_BITS(
+ 216:	81 e0       	ldi	r24, 0x01	; 1
+ 218:	8a bb       	out	0x1a, r24	; 26
+         MPORT_PORTA_PIN3_DIR,
+         MPORT_PORTA_PIN2_DIR,
+         MPORT_PORTA_PIN1_DIR,
+         MPORT_PORTA_PIN0_DIR);
+
+        DDRB = CONCAT_BITS(
+ 21a:	17 ba       	out	0x17, r1	; 23
+         MPORT_PORTB_PIN3_DIR,
+         MPORT_PORTB_PIN2_DIR,
+         MPORT_PORTB_PIN1_DIR,
+         MPORT_PORTB_PIN0_DIR);
+
+        PORTA = CONCAT_BITS (
+ 21c:	8b bb       	out	0x1b, r24	; 27
+        MPORT_PORTA_PIN2_PORT,
+        MPORT_PORTA_PIN1_PORT,
+        MPORT_PORTA_PIN0_PORT);   
+
+
+        PORTB = CONCAT_BITS (
+ 21e:	18 ba       	out	0x18, r1	; 24
+ 220:	08 95       	ret
+
+Disassembly of section .text.__dummy_fini:
+
+0000022a <_fini>:
+ 22a:	08 95       	ret
+
+Disassembly of section .text.__dummy_funcs_on_exit:
+
+0000022c <__funcs_on_exit>:
+ 22c:	08 95       	ret
+
+Disassembly of section .text.__dummy_simulator_exit:
+
+0000022e <__simulator_exit>:
+ 22e:	08 95       	ret
+
+Disassembly of section .text.exit:
+
+00000200 <exit>:
+ 200:	ec 01       	movw	r28, r24
+ 202:	0e 94 16 01 	call	0x22c	; 0x22c <__funcs_on_exit>
+ 206:	0e 94 15 01 	call	0x22a	; 0x22a <_fini>
+ 20a:	ce 01       	movw	r24, r28
+ 20c:	0e 94 17 01 	call	0x22e	; 0x22e <__simulator_exit>
+ 210:	ce 01       	movw	r24, r28
+ 212:	0e 94 13 01 	call	0x226	; 0x226 <_Exit>
+
+Disassembly of section .text._Exit:
+
+00000226 <_Exit>:
+ 226:	0e 94 52 00 	call	0xa4	; 0xa4 <_exit>
